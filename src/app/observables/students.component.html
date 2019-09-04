@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row" style="margin-top: 30px">
+      <div class="col-md-3 col-xs-6" *ngFor="let student of students">
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">{{ student.name }}</h5>
+                  <h6 class="card-subtitle">{{ student.enrollmentnumber }}</h6>
+                  <p class="card-text">{{ student.college }}</p>
+                  <p class="card-text">{{ student.university }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
