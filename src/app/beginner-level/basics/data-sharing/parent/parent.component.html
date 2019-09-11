@@ -1,0 +1,56 @@
+<div>
+  <mat-card class="parent-card">
+    <mat-card-header>
+      <mat-card-title>Parent</mat-card-title>
+      <mat-card-subtitle
+        ><input type="text" [(ngModel)]="parentMessage"
+      /></mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        <app-child
+          [childMessage]="parentMessage"
+          (messageEvent)="receiveMessage($event)"
+        ></app-child>
+      </p>
+      <p>Data Shared from child :</p>
+      <p>{{ message }}</p>
+      <p>Following is the message from Child :</p>
+      <p>{{ messageViaOutputParent }}</p>
+    </mat-card-content>
+  </mat-card>
+  <hr />
+  <div>
+    <h3>Parent to Child: Sharing Data via Input</h3>
+    <span>
+      This is probably the most common and straightforward method of sharing
+      data. It works by using the @Input() decorator to allow data to be passed
+      via the template.
+    </span>
+    <hr />
+    <h3>Child to Parent: Sharing Data via ViewChild</h3>
+    <span>
+      ViewChild allows a one component to be injected into another, giving the
+      parent access to its attributes and functions. One caveat, however, is
+      that child won’t be available until after the view has been initialized.
+      This means we need to implement the AfterViewInit lifecycle hook to
+      receive the data from the child.
+    </span>
+    <hr />
+    <h3>Child to Parent: Sharing Data via Output() and EventEmitter</h3>
+    <span>
+      Another way to share data is to emit data from the child, which can be
+      listed to by the parent. This approach is ideal when you want to share
+      data changes that occur on things like button clicks, form entires, and
+      other user events. In the parent, we create a function to receive the
+      message and set it equal to the message variable. In the child, we declare
+      a messageEvent variable with the Output decorator and set it equal to a
+      new event emitter. Then we create a function named sendMessage that calls
+      emit on this event with the message we want to send. Lastly, we create a
+      button to trigger this function. The parent can now subscribe to this
+      messageEvent that’s outputted by the child component, then run the receive
+      message function whenever this event occurs
+    </span>
+    <hr />
+  </div>
+</div>

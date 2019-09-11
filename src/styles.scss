@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://fonts.googleapis.com/css?family=Nunito:400,700&display=swap");
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 $primary: rgb(111, 0, 255);
 
@@ -10,10 +11,11 @@ body {
 }
 
 .container {
-  width: 80%;
+  width: 500%;
   margin: 0 auto;
+  max-width: 1400px !important;
+  
 }
-
 header {
   background: $primary;
   padding: 1em 0;

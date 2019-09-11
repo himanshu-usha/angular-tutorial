@@ -7,7 +7,7 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
   styleUrls: ['./template-driven-forms.component.scss']
 })
 export class TemplateDrivenFormsComponent implements OnInit {
-  @ViewChild('f') signupForm: NgForm;
+  @ViewChild('f', {static: false}) signupForm: NgForm;
 
   defaultGender = 'male';
   servers = ['Production Server', 'QA Server', 'Development Server'];

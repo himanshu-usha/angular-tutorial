@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-12 col-sm-offset-1 col-md-offset-2">
+      <div>
+        <p>
+          Data binding is a core concept in Angular and allows to define
+          communication between a component and the DOM, making it very easy to
+          define interactive applications without worrying about pushing and
+          pulling data. There are four forms of data binding and they differ in
+          the way the data is flowing.
+        </p>
+        <hr />
+      </div>
+      <h2>
+        From the Component to the DOM
+      </h2>
+      <div>
+        <hr />
+        <h3>{{ stringInterpolation }}</h3>
+        <p>This adds the value of a property from the component:</p>
+        <li>
+          I am {{ person.name }} and my age is {{ person.age }}. I am a
+          {{ person.profession }}
+        </li>
+      </div>
+      <hr />
+      <div>
+        <h3>{{ propertyBinding }}</h3>
+        <p>
+          With property binding, the value is passed from the component to the
+          specified property, which can often be a simple html attribute:
+        </p>
+        <div>
+          <li>Name : <input type="text" [value]="person.name" /></li>
+          <li>Age : <input type="number" [value]="person.age" /></li>
+          <li>Profession :<input type="text" [value]="person.profession" /></li>
+        </div>
+        <span [style.background-color]="selectedColor">
+          Here are two more examples, one that applies a background-color from
+          the value of selectedColor in the component and one that applies a
+          class name if isSelected evaluates to true:
+        </span>
+      </div>
+      <div>
+        <hr />
+        <h3>{{ eventBinding }}</h3>
+        <p>
+          When a specific DOM event happens (eg.: click, change, keyup), call
+          the specified specified method in the component. In the example below,
+          the cookBacon() method from the component is called when the button is
+          clicked:
+        </p>
+        <div>
+          <li>Name : <input type="text" (input)="changeName($event)" /></li>
+          <li>Name you changed : {{ name }}</li>
+        </div>
+      </div>
+      <div>
+        <hr />
+        <h3>{{ twoway }}</h3>
+        <p>
+          Two-way data binding allows to have the data flow both ways. In this
+          example, the user.email data property is used as the value for the
+          input, but if the user changes the value, the component property gets
+          updated automatically to the new value:
+        </p>
+        <div>
+          <li>Name : <input type="text" [(ngModel)]="name" /></li>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
