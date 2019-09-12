@@ -1,0 +1,14 @@
+<mat-card class="child-card">
+  <mat-card-header>
+    <mat-card-title>Child</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Following is the message from Parent :</p>
+    <p>
+      {{ childMessage }}
+    </p>
+    <p>Here is the reply for Parents Message</p>
+    <input type="text" [(ngModel)]="messageViaOutputChild"/>
+    <button class="btn btn-outline-primary" (click)="sendMessage()">Send Message</button>
+  </mat-card-content>
+</mat-card>
